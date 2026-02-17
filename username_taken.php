@@ -1,0 +1,227 @@
+<?php
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildersCo | Join Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { 
+            background-color: #f2f2f2; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .register-container { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            padding: 15px;
+        }
+        .card { 
+            border: none; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            max-width: 420px; 
+            width: 100%;
+        }
+        .brand-name {
+            font-weight: 900;
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            color: #212529; 
+            margin-bottom: -5px;
+        }
+        .brand-quote {
+            color: #6c757d;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .form-label {
+            font-size: 0.65rem; 
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+        .form-control-sm {
+            font-size: 0.8rem;
+        }
+        .btn-dark {
+            background-color: #212529;
+            border: none;
+            font-size: 0.8rem;
+            padding: 8px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.6rem;
+            margin: 1rem 0;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+
+        /* Icon Styles */
+        .bi-google { color: #db4437; }
+        .bi-facebook { color: #1877f2; }
+
+        .btn-outline-secondary {
+            font-size: 0.75rem;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+
+        /* Compact Validation Styling */
+        .requirement-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .requirement {
+            font-size: 0.6rem;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container register-container">
+    <div class="text-center">
+        <h1 class="brand-name">buildersco</h1>
+        <p class="brand-quote">"Forging the future together"</p>
+    </div>
+
+    <div class="card p-1"> 
+        <div class="card-body">
+            <h6 class="text-center mb-3 fw-bold text-uppercase small" style="letter-spacing: 1px; font-size: 0.7rem;">Create Account</h6>
+            
+            <div class="alert alert-danger d-flex align-items-center p-2 mb-3" role="alert" style="font-size: 0.75rem; border-radius: 0.4rem;">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            <div>
+            <strong>Registration Failed:</strong> The username is already in use.
+            </div>
+        </div>
+            <form id="registrationForm" method="POST" action="register.php">
+                <div class="row g-2 mb-2">
+                    <div class="col-6">
+                        <label class="form-label fw-bold text-uppercase text-secondary">Full Name</label>
+                        <input type="text" class="form-control form-control-sm" placeholder="Juan Dela Cruz" name="fullname" required>
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label fw-bold text-uppercase text-secondary">Email Address</label>
+                        <input type="email" class="form-control form-control-sm" placeholder="name@email.com" name="email" required>
+                    </div>
+                </div>
+
+                <div class="mb-2"> 
+                    <label class="form-label fw-bold text-uppercase text-secondary">Username</label>
+                    <input type="text" class="form-control form-control-sm" id="regUsername" placeholder="username" name="username" required>
+                    <div class="requirement-group ps-1">
+                        <div id="uLen" class="requirement text-danger"><i class="bi bi-x-circle"></i> 5+ chars</div>
+                        <div id="uAlpha" class="requirement text-danger"><i class="bi bi-x-circle"></i> Alphanumeric</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-uppercase text-secondary">Password</label>
+                    <div class="input-group input-group-sm">
+                        <input type="password" class="form-control form-control-sm" id="regPassword" placeholder="Strong password" name="password" required>
+                        <span class="input-group-text bg-white" id="toggleRegPassword" style="cursor:pointer;">
+                            <i class="bi bi-eye" id="eyeIcon" style="font-size: 0.7rem;"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="requirement-group ps-1">
+                        <div id="pLen" class="requirement text-danger"><i class="bi bi-x-circle"></i> 8+ chars</div>
+                        <div id="pUp" class="requirement text-danger"><i class="bi bi-x-circle"></i> 1 Upper</div>
+                        <div id="pNum" class="requirement text-danger"><i class="bi bi-x-circle"></i> 1 Num</div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark">Register</button>
+                </div>
+            </form>
+
+            <div class="divider text-uppercase fw-bold">OR</div>
+
+            <div class="row g-2">
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary btn-sm w-100 d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-google"></i> Google
+                    </button>
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-outline-secondary btn-sm w-100 d-flex align-items-center justify-content-center gap-1">
+                        <i class="bi bi-facebook"></i> Facebook
+                    </button>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <p class="small mb-0 text-muted" style="font-size: 0.65rem;">
+                    Already a member? <a href="login.html" class="text-dark fw-bold text-decoration-underline">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const usernameInput = document.querySelector('#regUsername');
+    const passwordInput = document.querySelector('#regPassword');
+    const togglePassword = document.querySelector('#toggleRegPassword');
+    const eyeIcon = document.querySelector('#eyeIcon');
+
+    const uLenReq = document.querySelector('#uLen');
+    const uAlphaReq = document.querySelector('#uAlpha');
+    const pLenReq = document.querySelector('#pLen');
+    const pUpReq = document.querySelector('#pUp');
+    const pNumReq = document.querySelector('#pNum');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        eyeIcon.classList.toggle('bi-eye');
+        eyeIcon.classList.toggle('bi-eye-slash');
+    });
+
+    usernameInput.addEventListener('input', () => {
+        const val = usernameInput.value;
+        validate(uLenReq, val.length >= 5);
+        validate(uAlphaReq, /^[a-zA-Z0-9]+$/.test(val) && val !== "");
+    });
+
+    passwordInput.addEventListener('input', () => {
+        const val = passwordInput.value;
+        validate(pLenReq, val.length >= 8);
+        validate(pUpReq, /[A-Z]/.test(val));
+        validate(pNumReq, /[0-9]/.test(val));
+    });
+
+    function validate(element, condition) {
+        if (condition) {
+            element.classList.replace('text-danger', 'text-success');
+            element.querySelector('i').classList.replace('bi-x-circle', 'bi-check-circle');
+        } else {
+            element.classList.replace('text-success', 'text-danger');
+            element.querySelector('i').classList.replace('bi-check-circle', 'bi-x-circle');
+        }
+    }
+</script>
+
+</body>
+</html>
