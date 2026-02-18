@@ -113,6 +113,7 @@
             <div>
             <strong>Registration Failed:</strong> The username is already in use.
             </div>
+            
         </div>
             <form id="registrationForm" method="POST" action="register.php">
                 <div class="row g-2 mb-2">

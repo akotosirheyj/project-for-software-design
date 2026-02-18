@@ -1,0 +1,180 @@
+<?php
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildersCo Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body { 
+            background-color: #f2f2f2; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .login-container { 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        .card { 
+            border: none; 
+            border-radius: 0.5rem; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+            max-width: 350px; 
+            width: 100%;
+        }
+        .brand-name {
+            font-weight: 900;
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            color: #212529; 
+            margin-bottom: -5px;
+        }
+        .brand-quote {
+            color: #6c757d;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .form-label {
+            font-size: 0.7rem; 
+            letter-spacing: 1px;
+        }
+        .form-control-sm {
+            font-size: 0.85rem;
+        }
+        .btn-dark {
+            background-color: #212529;
+            border: none;
+            font-size: 0.85rem;
+            padding: 8px;
+        }
+        /* Social Button Styling */
+        .btn-outline-secondary {
+            font-size: 0.8rem;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+        .btn-outline-secondary:hover {
+            background-color: #f8f9fa;
+            color: #000;
+            border-color: #adb5bd;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.7rem;
+            margin: 1.5rem 0;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .social-link {
+            color: #212529; /* Text remains black */
+            border: 1px solid #dee2e6;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .social-link:hover {
+            background-color: #f8f9fa;
+            border-color: #ced4da;
+        }
+
+        /* Specific Icon Colors */
+        .bi-google { color: #db4437; }   /* Google Red */
+        .bi-facebook { color: #1877f2; } /* Facebook Blue */
+
+        .divider:not(:empty)::before { margin-right: .5em; }
+        .divider:not(:empty)::after { margin-left: .5em; }
+        
+    </style>
+</head>
+<body>
+
+<div class="container login-container">
+    <div class="text-center">
+        <h1 class="display-3 brand-name">buildersco</h1>
+        <p class="brand-quote">"Forging the future together"</p>
+    </div>
+
+    <div class="card p-2"> 
+        <div class="card-body">
+            <h6 class="text-center mb-3 fw-bold text-uppercase small" style="letter-spacing: 1px;">Sign In</h6>
+
+            <div class="alert alert-warning d-flex align-items-center p-2 mb-3" role="alert" style="font-size: 0.75rem; border-radius: 0.4rem; border-left: 4px solid #ffc107;">
+                <i class="bi bi-key-fill me-2" style="font-size: 1rem;"></i>
+                <div>
+                    <strong>Incorrect Username/Email:</strong> Please double-check your credentials and try again.
+                </div>
+            </div>
+
+            <form method="POST" action="login.php" enctype="multipart/form-data">
+                <div class="mb-2"> 
+                    <label for="loginIdentifier" class="form-label fw-bold text-uppercase text-secondary">Username/Email</label>
+                    <input type="text" class="form-control form-control-sm" id="loginIdentifier" placeholder="username or yourname@mail.com" name="UserEntry" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-bold text-uppercase text-secondary">Password</label>
+                    <div class="input-group input-group-sm">
+                        <input type="password" class="form-control form-control-sm" id="password" placeholder="Password" name="UserPassword" required>
+                        <span class="input-group-text bg-white" id="togglePassword" style="cursor:pointer;">
+                            <i class="bi bi-eye" id="eyeIcon" style="font-size: 0.8rem;"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-dark">Login</button>
+                </div>
+            </form>
+
+            <div class="divider text-uppercase fw-bold">OR</div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center gap-2">
+                    Sign in with <i class="bi bi-google"></i> 
+                </button>
+                <button class="btn btn-outline-secondary btn-sm d-flex align-items-center justify-content-center gap-2">
+                    Sign in with <i class="bi bi-facebook"></i>
+                </button>
+            </div>
+            
+            <div class="text-center mt-3">
+                <p class="small mb-0 text-muted" style="font-size: 0.7rem;">
+                    New here? <a href="register.html" class="text-dark fw-bold text-decoration-underline">Create Account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    const eyeIcon = document.querySelector('#eyeIcon');
+
+    togglePassword.addEventListener('click', function () {
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        eyeIcon.classList.toggle('bi-eye');
+        eyeIcon.classList.toggle('bi-eye-slash');
+    });
+</script>
+
+</body>
+</html>
