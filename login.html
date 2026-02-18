@@ -109,16 +109,16 @@
     <div class="card p-2"> 
         <div class="card-body">
             <h6 class="text-center mb-3 fw-bold text-uppercase small" style="letter-spacing: 1px;">Sign In</h6>
-            <form>
+            <form method="POST" action="login.php" enctype="multipart/form-data">
                 <div class="mb-2"> 
                     <label for="loginIdentifier" class="form-label fw-bold text-uppercase text-secondary">Username/Email</label>
-                    <input type="text" class="form-control form-control-sm" id="loginIdentifier" placeholder="username or yourname@mail.com" required>
+                    <input type="text" class="form-control form-control-sm" id="loginIdentifier" placeholder="username or yourname@mail.com" name="UserEntry" required>
                 </div>
                 
                 <div class="mb-3">
                     <label for="password" class="form-label fw-bold text-uppercase text-secondary">Password</label>
                     <div class="input-group input-group-sm">
-                        <input type="password" class="form-control form-control-sm" id="password" placeholder="Password" required>
+                        <input type="password" class="form-control form-control-sm" id="password" placeholder="Password" name="UserPassword" required>
                         <span class="input-group-text bg-white" id="togglePassword" style="cursor:pointer;">
                             <i class="bi bi-eye" id="eyeIcon" style="font-size: 0.8rem;"></i>
                         </span>
